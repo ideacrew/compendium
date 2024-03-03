@@ -1,0 +1,26 @@
+name: Documentation
+on: push
+
+jobs:
+  docsite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install hugo
+        run: |
+          sudo snap install hugo --channel=extended
+      - name: npm install
+        run: |
+          cd hugo && npm install
+      - name: Generate Documentation
+        run: |
+          cd hugo && hugo
+      - name: Generate Doc Artifact
+        run: |
+          cd hugo/public && zip -r site.zip ./*
+      - name: Upload Documentation
+        uses: actions/upload-artifact@v3
+        with:
+          name: Documentation
+          path: hugo/public/site.zip
+
