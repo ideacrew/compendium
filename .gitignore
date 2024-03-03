@@ -1,0 +1,7 @@
+# Exclude hugo content
+hugo/.hugo_build.lock
+hugo/node_modules
+hugo/public
+hugo/static/doc
+hugo/package-lock.json
+hugo/resources/_gen
