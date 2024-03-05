@@ -16,6 +16,10 @@ Contributions and feedback are welcome!
 <p>So pay attention when she appears!</p>
 {{< /blavi_speaks >}}
 
+## Projects
+
+A short inventory and links to documentation for other IdeaCrew projects.
+
 ## Processes
 
 This area discusses notes and advice on our working processes.

@@ -1,11 +1,16 @@
 name: Documentation
-on: push
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'trunk'
 
 jobs:
   docsite:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: nelonoel/branch-name@v1.0.1
       - name: install hugo
         run: |
           sudo snap install hugo --channel=extended
@@ -14,13 +19,11 @@ jobs:
           cd hugo && npm install
       - name: Generate Documentation
         run: |
-          cd hugo && hugo
-      - name: Generate Doc Artifact
-        run: |
-          cd hugo/public && zip -r site.zip ./*
-      - name: Upload Documentation
-        uses: actions/upload-artifact@v3
-        with:
-          name: Documentation
-          path: hugo/public/site.zip
-
+          cd hugo && hugo --minify
+      - uses: jakejarvis/s3-sync-action@master
+        env:
+          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          SOURCE_DIR: hugo/public
+          DEST_DIR: ${{ env.BRANCH_NAME }}

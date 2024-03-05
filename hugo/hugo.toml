@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'http://ic-compendium.s3-website-us-east-1.amazonaws.com/'
 languageCode = 'en-us'
 title = 'IdeaCrew Compendium'
 [module]
