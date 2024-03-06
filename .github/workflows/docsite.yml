@@ -21,6 +21,8 @@ jobs:
         run: |
           cd hugo && hugo --minify
       - uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read
         env:
           AWS_S3_BUCKET: ${{ secrets.S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.IC_AWS_ACCESS_KEY_ID }}
