@@ -29,3 +29,11 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.IC_AWS_SECRET_ACCESS_KEY }}
           SOURCE_DIR: hugo/public
           DEST_DIR: ${{ env.BRANCH_NAME }}
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+          PATHS: "/*"
+          AWS_REGION: "us-east-1"
+          AWS_ACCESS_KEY_ID: ${{ secrets.IC_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.IC_AWS_SECRET_ACCESS_KEY }}
