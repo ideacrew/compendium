@@ -1,6 +1,7 @@
 baseURL = 'http://ic-compendium.s3-website-us-east-1.amazonaws.com/'
 languageCode = 'en-us'
 title = 'IdeaCrew Compendium'
+relativeURLs = true
 [module]
 proxy = "direct"
 [[module.imports]]
