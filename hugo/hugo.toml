@@ -1,4 +1,4 @@
-baseURL = 'http://ic-compendium.s3-website-us-east-1.amazonaws.com/'
+baseURL = 'https://compendium.docs.ideacrew.com/'
 languageCode = 'en-us'
 title = 'IdeaCrew Compendium'
 relativeURLs = true
