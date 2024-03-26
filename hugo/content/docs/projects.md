@@ -12,4 +12,4 @@ This page provides an inventory and links to documentation for projects within i
 * FDSH Gateway - no documentation site yet.
 * [GlueDB](https://gluedb.docs.ideacrew.com/me_carrier_boarding/)
 * [Enroll](https://enroll.docs.ideacrew.com/)
-* [Medicaid Gateway](http://ic-medicaid-gateway-docs.s3-website-us-east-1.amazonaws.com/trunk/)
+* [Medicaid Gateway](http://medicaid-gateway.docs.ideacrew.com/)
